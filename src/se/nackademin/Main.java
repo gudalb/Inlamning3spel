@@ -2,36 +2,31 @@ package se.nackademin;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Random;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        List<List<Integer>> spelTest = generateGame(5,5);
+        int c = 4;
+        int r = 6;
 
-        for(int i = 0; i < spelTest.size(); i++) {
-            for(int e : spelTest.get(i)) {
-                System.out.print(e + "  ");
-            }
-            System.out.println();
+        List<Integer> testGame = genGame(c,r);
+
+        for (int i = 0; i < testGame.size(); i++) {
+            if (i % c == 0) System.out.println();
+            System.out.print(testGame.get(i));
         }
 
     }
 
-    public static List<List<Integer>> generateGame (int columns, int rows) {
-        List<List<Integer>> newGame = new ArrayList<>();
+    public static List<Integer> genGame (int columns, int rows) {
+        List<Integer> game = new ArrayList<>();
 
-        List<Integer> tempList = new ArrayList<>();
-
-        for (int e = 0; e < columns; e++) {
-            tempList.clear();
-            for (int i = 0; i < rows; i++) {
-                tempList.add(0);
-            }
-            newGame.add(tempList);
+        for (int i = 0; i < (columns*rows); i++) {
+            game.add(0);
         }
 
-
-        return newGame;
+        return game;
     }
 }
